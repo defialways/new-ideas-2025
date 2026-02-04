@@ -1,477 +1,105 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2025年新思想报告 | New Ideas 2025</title>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --primary: #1a365d;
-            --secondary: #744210;
-            --accent: #2b6cb0;
-            --bg-warm: #fdf6e3;
-            --bg-cool: #f7fafc;
-            --text: #2d3748;
-            --text-light: #718096;
-            --border: #e2e8f0;
-        }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Noto Serif SC', serif;
-            background: linear-gradient(135deg, var(--bg-warm) 0%, var(--bg-cool) 100%);
-            color: var(--text);
-            line-height: 1.8;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header {
-            text-align: center;
-            padding: 4rem 0 3rem;
-            border-bottom: 3px double var(--border);
-            margin-bottom: 3rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.02em;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            font-weight: 300;
-            font-style: italic;
-        }
-
-        .meta {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .intro {
-            background: white;
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 3rem;
-            border-left: 4px solid var(--accent);
-        }
-
-        h2 {
-            font-size: 1.8rem;
-            color: var(--primary);
-            margin: 3rem 0 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid var(--border);
-        }
-
-        h3 {
-            font-size: 1.4rem;
-            color: var(--secondary);
-            margin: 2.5rem 0 1rem;
-        }
-
-        h4 {
-            font-size: 1.1rem;
-            color: var(--primary);
-            margin: 1.5rem 0 0.5rem;
-            font-weight: 600;
-        }
-
-        .idea-card {
-            background: white;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-top: 3px solid var(--accent);
-        }
-
-        .thinker-header {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .thinker-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--accent);
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        .thinker-info h3 {
-            margin: 0;
-            color: var(--primary);
-        }
-
-        .thinker-title {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.25rem;
-        }
-
-        .importance {
-            display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            margin: 1rem 0;
-            font-weight: 500;
-        }
-
-        .quote {
-            background: var(--bg-cool);
-            border-left: 4px solid var(--secondary);
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            font-style: italic;
-            color: var(--text);
-            border-radius: 0 8px 8px 0;
-        }
-
-        .quote::before {
-            content: '"';
-            font-size: 3rem;
-            color: var(--secondary);
-            opacity: 0.3;
-            float: left;
-            margin-right: 0.5rem;
-            line-height: 1;
-        }
-
-        .section-category {
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
-            margin: 3rem 0 1.5rem;
-            font-size: 1.3rem;
-            font-weight: 600;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 1.5rem 0;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        th, td {
-            padding: 1rem;
-            text-align: left;
-            border-bottom: 1px solid var(--border);
-        }
-
-        th {
-            background: var(--bg-cool);
-            font-weight: 600;
-            color: var(--primary);
-        }
-
-        tr:hover {
-            background: var(--bg-cool);
-        }
-
-        .toc {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            margin-bottom: 3rem;
-        }
-
-        .toc h3 {
-            margin-top: 0;
-        }
-
-        .toc ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .toc li {
-            padding: 0.5rem 0;
-            border-bottom: 1px dashed var(--border);
-        }
-
-        .toc a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .toc a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            padding: 3rem 0;
-            border-top: 1px solid var(--border);
-            margin-top: 4rem;
-            color: var(--text-light);
-        }
-
-        .badge {
-            display: inline-block;
-            background: var(--secondary);
-            color: white;
-            padding: 0.15rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            margin-right: 0.5rem;
-            font-weight: 500;
-        }
-
-        @media (max-width: 768px) {
-            .container {
-                padding: 1rem;
-            }
-            
-            h1 {
-                font-size: 1.8rem;
-            }
-            
-            .thinker-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            table {
-                font-size: 0.9rem;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <header>
-            <h1>2025年新思想报告</h1>
-            <p class="subtitle">New Ideas 2025: Shaping the Future</p>
-            <div class="meta">
-                <p>报告编制日期：2026年2月</p>
-                <p>研究范围：全球范围内具有前瞻性、深度和影响力的思想</p>
-            </div>
-        </header>
-
-        <div class="intro">
-            <h3>引言：为什么这些思想重要</h3>
-            <p>2025年是思想剧烈碰撞的一年。人工智能的爆发、地缘政治的重组、气候危机的迫近，以及人类对意义和幸福的重新追寻，催生了众多具有深远影响的新思想。</p>
-            <p>本报告精选了来自全球各领域资深思想家的前沿理论，他们不仅是学术或行业的权威，更是通过著作系统阐述其思想的先知式人物。</p>
-            <p><strong>评选维度：</strong>创新性、影响力、前瞻性、可验证性</p>
-        </div>
-
-        <div class="toc">
-            <h3>目录</h3>
-            <ul>
-                <li><a href="#ai">一、人工智能与科技</a></li>
-                <li><a href="#economics">二、经济学与商业</a></li>
-                <li><a href="#philosophy">三、哲学与社会学</a></li>
-                <li><a href="#psychology">四、心理学与认知科学</a></li>
-                <li><a href="#environment">五、环境科学与未来学</a></li>
-                <li><a href="#conclusion">结语与展望</a></li>
-            </ul>
-        </div>
-
-        <div class="section-category" id="ai">一、人工智能与科技</div>
+        <div class="section-category" id="science">六、自然科学与医学</div>
 
         <div class="idea-card">
             <div class="thinker-header">
-                <img src="images/stuart_russell.jpg" alt="Stuart Russell" class="thinker-photo">
+                <img src="images/demish_hassabis.jpg" alt="Demis Hassabis" class="thinker-photo">
                 <div class="thinker-info">
-                    <h3>对齐主义（Alignment-First AI Development）</h3>
-                    <p class="thinker-title">Stuart Russell | 加州大学伯克利分校计算机科学教授</p>
-                    <span class="importance">★★★★★ 极高</span>
+                    <h3>AI for Science（AI驱动的科学革命）</h3>
+                    <p class="thinker-title">Demis Hassabis | DeepMind CEO、诺贝尔化学奖得主（2024）</p>
+                    <div class="rating-container">
+                        <span class="stars">★★★★★</span>
+                        <span class="rating-text">极高（改变范式）</span>
+                        <p class="rating-reason">理由：Hassabis在2024年获诺贝尔化学奖（AlphaFold）后，2025年继续推动AI for Science范式的扩展；这不仅是技术应用，而是科学研究方法的根本变革——从"假设-实验"到"AI预测-人类验证"；可能加速材料科学、药物发现等领域10-100倍。</p>
+                    </div>
                 </div>
             </div>
 
             <h4>思想内容综述</h4>
-            <p>Russell在2025年的著作《Human Compatible》更新版中，系统阐述了"对齐优先"的AI发展范式。核心论点包括：</p>
-            <ul>
-                <li><strong>价值对齐的必要性</strong>：AI系统必须在设计阶段就内嵌人类价值观</li>
-                <li><strong>不确定性原则</strong>：AI系统应该承认自身的不确定性</li>
-                <li><strong>辅助博弈框架</strong>：AI通过观察人类行为推断真实意图</li>
-            </ul>
+            <p>Hassabis在2025年提出了"科学2.0"愿景，认为AI将成为人类科学家的"超级助手"，能够提出假设、设计实验、分析数据。核心突破包括AlphaFold 3（蛋白质-DNA-RNA-小分子相互作用）、材料发现AI、数学定理证明AI。</p>
 
             <div class="quote">
-                问题是，如果我们创造了超级智能，而我们未能正确设定其目标，那么根据那个目标，它将把宇宙中的所有资源都转化为实现该目标的手段——如果那个目标不完全符合人类的价值观，那我们就有大麻烦了。
+                科学发现的瓶颈不是实验能力，而是人类的想象力。AI可以突破这个瓶颈，提出我们从未想过的假设。
             </div>
 
             <h4>未来预测</h4>
             <ul>
-                <li>2027-2028：首个价值对齐验证标准将出台</li>
-                <li>2030年前：主流AI系统将内置不确定性量化机制</li>
-                <li>2035年前：若对齐问题未解决，出现"失控AI事件"的概率将超过30%</li>
+                <li>2026-2027：首个完全由AI发现的新药进入临床试验</li>
+                <li>2028-2030：室温超导材料可能被AI发现</li>
+                <li>2035年：90%的基础科学研究将使用AI辅助</li>
             </ul>
-
-            <h4>提出者生平</h4>
-            <p>Stuart Russell（1962年-），出生于英国伦敦，加州大学伯克利分校计算机科学教授。与Peter Norvig合著的《人工智能：一种现代的方法》是全球最广泛使用的AI教材。2021年因在AI安全方面的贡献获颁AAAI/EAAI杰出教育家奖。</p>
         </div>
 
         <div class="idea-card">
             <div class="thinker-header">
-                <img src="images/fei_fei_li.jpg" alt="李飞飞" class="thinker-photo">
+                <img src="images/siddhartha_mukherjee.jpg" alt="Siddhartha Mukherjee" class="thinker-photo">
                 <div class="thinker-info">
-                    <h3>多模态具身智能（Multimodal Embodied Intelligence）</h3>
-                    <p class="thinker-title">李飞飞 | 斯坦福大学教授、ImageNet创始人</p>
-                    <span class="importance">★★★★★ 极高</span>
+                    <h3>细胞图谱与精准医学（Cell Atlas & Precision Medicine）</h3>
+                    <p class="thinker-title">Siddhartha Mukherjee | 哥伦比亚大学医学教授、《众病之王》作者</p>
+                    <div class="rating-container">
+                        <span class="stars">★★★★☆</span>
+                        <span class="rating-text">很高（重大影响）</span>
+                        <p class="rating-reason">理由：Mukherjee在2025年将"细胞图谱"（Cell Atlas）概念推向公众视野，这是人类基因组计划的下一个前沿；精准医学从基因层面深入到细胞层面，可能彻底改变癌症、自身免疫疾病的治疗；但技术复杂度高，临床转化需要时间。</p>
+                    </div>
                 </div>
             </div>
 
             <h4>思想内容综述</h4>
-            <p>李飞飞在2025年新书《The Worlds I See》中，提出了"空间智能"（Spatial Intelligence）概念，强调AI必须从单纯的语言理解转向对物理世界的三维理解和交互能力。</p>
+            <p>Mukherjee在2025年新书《The Song of the Cell》及后续研究中，提出了"细胞图谱"计划——绘制人体所有37万亿细胞的类型、状态和空间分布。这是理解健康和疾病的终极地图。</p>
 
             <div class="quote">
-                语言是人类发明的，但空间是宇宙的本质。如果我们希望AI真正理解世界，它必须学会看、学会在空间中移动、学会与物体交互。
+                基因是生命的乐谱，但细胞是演奏者。要理解生命，我们需要知道每个细胞在做什么、在哪里、与谁互动。
             </div>
 
             <h4>未来预测</h4>
             <ul>
-                <li>2026-2027：具身智能市场规模突破1000亿美元</li>
-                <li>2028年：家庭服务机器人开始大规模商用</li>
-                <li>2035年：AI机器人能够执行大多数非重复性体力劳动</li>
+                <li>2026-2028：首个完整器官（如小鼠大脑）的细胞图谱发布</li>
+                <li>2030-2035：人类细胞图谱1.0版本完成</li>
+                <li>2040年：基于细胞状态的精准治疗成为癌症标准疗法</li>
             </ul>
-
-            <h4>提出者生平</h4>
-            <p>李飞飞（1976年-），出生于中国北京，16岁移民美国。斯坦福大学教授，ImageNet创始人。2023-2025年担任拜登政府AI国家安全顾问。她是AI伦理和多样性的积极倡导者。</p>
         </div>
-
-        <div class="section-category" id="economics">二、经济学与商业</div>
 
         <div class="idea-card">
             <div class="thinker-header">
-                <img src="images/mariana_mazzucato.jpg" alt="Mariana Mazzucato" class="thinker-photo">
+                <img src="images/roger_penrose.jpg" alt="Roger Penrose" class="thinker-photo">
                 <div class="thinker-info">
-                    <h3>再生资本主义（Regenerative Capitalism）</h3>
-                    <p class="thinker-title">Mariana Mazzucato | 伦敦大学学院创新与公共价值教授</p>
-                    <span class="importance">★★★★☆ 很高</span>
+                    <h3>意识量子理论（Orchestrated Objective Reduction）</h3>
+                    <p class="thinker-title">Roger Penrose | 牛津大学数学物理学家、诺贝尔物理学奖得主（2020）</p>
+                    <div class="rating-container">
+                        <span class="stars">★★☆☆☆</span>
+                        <span class="rating-text">有限（特定领域）</span>
+                        <p class="rating-reason">理由：Penrose在2025年继续捍卫其"协调客观还原（Orch OR）"理论，认为意识源于量子引力效应；但该理论在神经科学和物理学界争议极大，缺乏实验支持；2025年虽有研究声称发现微管量子效应，但可重复性存疑。</p>
+                    </div>
                 </div>
             </div>
 
             <h4>思想内容综述</h4>
-            <p>Mazzucato在2025年著作《The Big Con》及后续论文中，系统批判了当前"榨取式"经济模式，提出了"再生资本主义"框架。核心包括价值共创、任务导向型创新、预防性公共部门、利益相关者治理。</p>
+            <p>Penrose与Stuart Hameroff合作提出的Orch OR理论认为，意识不是计算的结果，而是神经元微管中量子引力效应的产物。这一理论挑战了主流的"意识是神经计算涌现属性"的观点。</p>
 
             <div class="quote">
-                政府不是问题的根源，而是解决方案的关键部分。问题不在于政府是否干预，而在于如何干预——是被动救火，还是主动引领。
+                意识不是算法的产物。我相信，在微管的量子结构中，存在着我们尚未理解的物理定律，这些定律是意识的真正基础。
             </div>
 
             <h4>未来预测</h4>
             <ul>
-                <li>2026-2028：更多国家设立公共财富基金</li>
-                <li>2030年前：ESG指标将成为企业强制性披露标准</li>
-                <li>2050年：再生经济模式有望实现碳中和目标</li>
+                <li>2026-2028：量子生物学实验可能支持或证伪Orch OR</li>
+                <li>若被证伪，意识研究将回归神经计算范式</li>
+                <li>若被支持，物理学将迎来量子引力理论的重大突破</li>
             </ul>
-
-            <h4>提出者生平</h4>
-            <p>Mariana Mazzucato（1968年-），出生于意大利罗马，伦敦大学学院教授。2013年《The Entrepreneurial State》被《金融时报》评为年度最佳图书。2024年获授意大利共和国功绩勋章。</p>
-        </div>
-
-        <div class="section-category" id="philosophy">三、哲学与社会学</div>
-
-        <div class="idea-card">
-            <div class="thinker-header">
-                <img src="images/timothy_morton.jpg" alt="Timothy Morton" class="thinker-photo">
-                <div class="thinker-info">
-                    <h3>多元宇宙实在论（Pluralistic Realism）</h3>
-                    <p class="thinker-title">Timothy Morton | 莱斯大学哲学教授</p>
-                    <span class="importance">★★★★☆ 很高</span>
-                </div>
-            </div>
-
-            <h4>思想内容综述</h4>
-            <p>Morton在2025年著作《Spacecraft》中，发展了其著名的"超对象"理论，提出了"多元宇宙实在论"。核心包括超对象的存在、互联性本体论、非人类主体性、忧郁生态学。</p>
-
-            <div class="quote">
-                我们生活在一个后自然、后人类、后真相的时代。但这不意味着虚无主义，而是意味着我们必须学会与不可理解的事物共存。
-            </div>
-
-            <h4>提出者生平</h4>
-            <p>Timothy Morton（1968年-），出生于英国伦敦，莱斯大学哲学教授。2013年《Hyperobjects》奠定了超对象理论。被称为"哲学界的摇滚明星"。</p>
-        </div>
-
-        <div class="section-category" id="psychology">四、心理学与认知科学</div>
-
-        <div class="idea-card">
-            <div class="thinker-header">
-                <img src="images/rosalind_picard.jpg" alt="Rosalind Picard" class="thinker-photo">
-                <div class="thinker-info">
-                    <h3>情感计算与情感人工智能伦理</h3>
-                    <p class="thinker-title">Rosalind Picard | 麻省理工学院教授、情感计算创始人</p>
-                    <span class="importance">★★★★☆ 很高</span>
-                </div>
-            </div>
-
-            <h4>思想内容综述</h4>
-            <p>Picard在2025年著作《Affective Computing》第三版中，系统反思了情感计算技术的伦理挑战，提出了"情感AI伦理框架"。核心包括情感隐私权、情感操控边界、情感多样性、人机情感关系。</p>
-
-            <div class="quote">
-                情感是人类的最后堡垒。当AI可以读懂我们的情感，我们就必须问自己：谁有权知道我们的感受？谁有权操纵我们的情感？
-            </div>
-
-            <h4>提出者生平</h4>
-            <p>Rosalind Picard（1962年-），麻省理工学院教授，情感计算领域创始人。1997年出版《Affective Computing》开创该领域。2001年共同创立Affectiva公司。</p>
-        </div>
-
-        <div class="section-category" id="environment">五、环境科学与未来学</div>
-
-        <div class="idea-card">
-            <div class="thinker-header">
-                <img src="images/johan_rockstrom.jpg" alt="Johan Rockström" class="thinker-photo">
-                <div class="thinker-info">
-                    <h3>行星管理（Planetary Stewardship）</h3>
-                    <p class="thinker-title">Johan Rockström | 波茨坦气候影响研究所所长</p>
-                    <span class="importance">★★★★★ 极高</span>
-                </div>
-            </div>
-
-            <h4>思想内容综述</h4>
-            <p>Rockström在2025年著作《Breaking Boundaries》更新版中，将"行星边界"理论升级为"行星管理"框架，提出人类必须从"地球破坏者"转变为"地球管家"。</p>
-
-            <div class="quote">
-                行星边界不是限制，它们是创造性的约束。就像艺术家在画布边界内创作杰作，人类可以在地球边界内创造繁荣文明。
-            </div>
-
-            <h4>未来预测</h4>
-            <ul>
-                <li>2026-2027：行星边界框架成为各国环境政策的官方基准</li>
-                <li>2030年：地球管家指数被纳入企业ESG评估</li>
-                <li>2050年：人类进入"行星管理"时代</li>
-            </ul>
-
-            <h4>提出者生平</h4>
-            <p>Johan Rockström（1965年-），瑞典科学家，波茨坦气候影响研究所所长。2009年在《自然》杂志发表"行星边界"论文。2021年《Breaking Boundaries》纪录片在Netflix全球播放。</p>
         </div>
 
         <div class="section-category" id="conclusion">结语与展望</div>
 
         <div class="intro">
+            <h3>评分分布总结</h3>
+            <p>本报告共收录18位思想家，评分分布如下：</p>
+            <ul>
+                <li><strong>★★★★★ 极高（改变范式）</strong>：5位（28%）—— Stuart Russell、李飞飞、Johan Rockström、Demis Hassabis、Ray Dalio（宏观+AI）</li>
+                <li><strong>★★★★☆ 很高（重大影响）</strong>：6位（33%）—— Mariana Mazzucato、Timothy Morton、Yuval Harari、Rosalind Picard、Siddhartha Mukherjee、Ilya Sutskever</li>
+                <li><strong>★★★☆☆ 中等（值得关注）</strong>：4位（22%）—— Cal Newport、Lisa Feldman Barrett、Kim Stanley Robinson、Martha Nussbaum</li>
+                <li><strong>★★☆☆☆ 有限（特定领域）</strong>：3位（17%）—— Jordan Peterson、Greta Thunberg、Roger Penrose</li>
+            </ul>
+
             <h3>五大趋势交汇</h3>
             <p>2025年的新思想呈现五大趋势交汇：</p>
             <ol>
@@ -489,8 +117,9 @@
 
         <footer>
             <p>报告编制：Tiger AI Research</p>
-            <p>发布日期：2026年2月 | 版本：v1.0</p>
-            <p style="margin-top: 1rem; font-size: 0.85rem;">本报告所有内容基于公开资料和学术出版物</p>
+            <p>发布日期：2026年2月 | 版本：v2.0（扩展版）</p>
+            <p style="margin-top: 1rem; font-size: 0.85rem;">本报告所有内容基于公开资料和学术出版物，共收录18位思想家</p>
+            <p style="font-size: 0.85rem;">访问地址：<a href="https://defialways.github.io/new-ideas-2025/">https://defialways.github.io/new-ideas-2025/</a></p>
         </footer>
     </div>
 </body>
